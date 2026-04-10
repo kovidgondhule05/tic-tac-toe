@@ -1,4 +1,4 @@
-# my-repository
+# GAME OF STONE, PAPER AND SCISSORS 
 def mainmenu():<br>
     while True:<br>
         print("MAIN MENU".center(50))<br>
