@@ -1,11 +1,11 @@
-# GAME OF STONE, PAPER AND SCISSORS 
+# CODE OF THE GAME OF STONE, PAPER AND SCISSORS 
 def mainmenu():<br>
     while True:<br>
         print("MAIN MENU".center(50))<br>
         print("WELCOME TO TIC TAC TOE".center(50))<br>
         print("TO PLAY THE GAME ENTER 'play' TO EXIT ENTER 'exit'")<br>
         o= input("Enter your choice: ")<br>
-        if o== 'play':<br>
+        if o== 'play':<bCODE OF 
             playgame()<br>
         elif o == 'exit':<br>
             print("GAME ENDED")<br>
