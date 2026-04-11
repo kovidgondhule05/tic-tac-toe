@@ -1,168 +1,95 @@
-#Tic Tac Toe
-This is a **Python console-based Tic Tac Toe game** for two players. I’ll explain it clearly so you understand how each part works 👇
+---
+
+This program is a **console-based Tic Tac Toe game** designed for two players. It allows users to play the game interactively through a menu system.
 
 ---
 
-## 🔹 1. `mainmenu()` function
+### 🔹 Main Menu
 
-This is the **starting point of the program**.
+* The program starts with a **main menu** that keeps running in a loop.
+* It displays:
 
-* It runs an **infinite loop (`while True`)**
-* Displays:
+  * A welcome message
+  * Instructions to either **play** or **exit**
+* Based on user input:
 
-  * "MAIN MENU"
-  * "WELCOME TO TIC TAC TOE"
-* Asks user for input:
-
-  * `'play'` → starts the game by calling `playgame()`
-  * `'exit'` → ends the program using `break`
-  * Any other input → shows error message
-
-👉 So this function controls whether the game starts or exits.
+  * Typing **"play"** starts the game
+  * Typing **"exit"** ends the program
 
 ---
 
-## 🔹 2. `playgame()` function
+### 🔹 Player Setup
 
-This function contains the **actual game logic**.
+* When the game starts:
 
-### 👤 Player Setup
-
-* Takes names of **Player 1 and Player 2**
-* Each player chooses their **symbol** (like `X` or `O`)
+  * Player 1 and Player 2 enter their names
+  * Each player chooses their own symbol (like X or O)
 
 ---
 
-### 🧩 Game Board
+### 🔹 Game Board
 
-```python
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-```
-
-* A list of 9 elements represents a **3×3 grid**
-* Each index corresponds to a position:
-
-```
-0 | 1 | 2
-3 | 4 | 5
-6 | 7 | 8
-```
+* The game uses a **3×3 grid** represented internally as a list.
+* The board is displayed in a structured format after every move so players can see the current state of the game.
 
 ---
 
-### 🖨️ `printboard()` function
+### 🔹 Game Logic
 
-* Displays the current board in a **grid format**
-* Helps players see the game state after each move
+* The game runs in a loop where players take turns.
+* On each turn:
 
----
-
-### 🏆 `winner(player)` function
-
-* Checks if a player has won
-* Uses predefined **winning combinations**:
-
-```python
-[0,1,2], [3,4,5], [6,7,8]  # rows
-[0,3,6], [1,4,7], [2,5,8]  # columns
-[0,4,8], [2,4,6]           # diagonals
-```
-
-* Returns `True` if player matches any winning condition
+  * The current player is asked to choose a position from **1 to 9**
+  * The chosen position is updated on the board
+  * The board is printed again with the new move
 
 ---
 
-### 📦 `isfull()` function
+### 🔹 Winning Condition
 
-* Checks if the board is completely filled
-* If no empty spaces → returns `True` (draw condition)
+* After each move, the program checks if the current player has won.
+* Winning is determined by matching any of the following:
 
----
-
-## 🔹 3. Game Loop
-
-```python
-while True:
-```
-
-This loop runs until the game ends.
-
-### Steps:
-
-1. Print board
-2. Identify current player
-3. Ask for position (1–9)
-4. Handle errors:
-
-   * Non-number → error
-   * Invalid position → error
-   * Already taken → error
-5. Place symbol on board
+  * Rows
+  * Columns
+  * Diagonals
+* If a player meets any winning condition, the game ends and that player is declared the winner.
 
 ---
 
-### 🏁 Win Check
+### 🔹 Draw Condition
 
-* If `winner(currentplayer)` → declare winner and break loop
+* If all positions on the board are filled and no player has won:
 
-### 🤝 Draw Check
-
-* If board is full → declare draw and break
+  * The game is declared a **draw**
 
 ---
 
-### 🔄 Player Switch
+### 🔹 Turn Switching
 
-```python
-if currentplayer == s1:
-    currentplayer = s2
-else:
-    currentplayer = s1
-```
+* After every valid move:
 
-* Alternates turns between players
+  * The turn switches from one player to the other
+* This continues until a win or draw occurs
 
 ---
 
-## 🔹 4. Game End
+### 🔹 Game End
 
-* Displays:
+* Once the game ends:
 
-  ```
-  !!! THANKS FOR PLAYING !!!
-  ```
-* Waits for user to press ENTER
-* Returns to main menu
+  * A message is displayed announcing the result
+  * A thank-you message is shown
+  * The user is asked to press ENTER to return to the main menu
 
 ---
 
-## 🔹 5. `mainmenu()` call
-
-```python
-mainmenu()
-```
-
-* Starts the whole program
-
----
-
-## ✅ Summary
+### 🔹 Overall Description
 
 This program:
 
-* Creates a **2-player Tic Tac Toe game**
-* Uses:
-
-  * Functions for modular design
-  * Lists for board representation
-  * Loops for continuous gameplay
-  * Condition checks for win/draw
-
----
-
-## 💡 Small Improvements You Can Add
-
-* Prevent both players choosing same symbol
-* Add AI (computer opponent 🤖)
-* Add score tracking
-* Use numbers on board for easier selection
+* Implements a **two-player Tic Tac Toe game**
+* Uses a **menu-driven system**
+* Displays the board after each move
+* Checks for **win and draw conditions**
+* Allows continuous play through the main menu
